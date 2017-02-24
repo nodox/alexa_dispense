@@ -13,17 +13,11 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'TutorialController',
       controllerAs: 'tutorial'
     })
-    .state('demo', {
-      url: '/demo',
-      templateUrl: 'app/demo/demo.html',
-      controller: 'DemoController',
-      controllerAs: 'demo'
-    })
-    .state('docs', {
-      url: '/docs',
-      templateUrl: 'app/docs/docs.html',
-      controller: 'DocsController',
-      controllerAs: 'docs'
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'app/dashboard/dashboard.html',
+      controller: 'DashboardController',
+      controllerAs: 'dashboard'
     });
 
   $urlRouterProvider.otherwise('/');

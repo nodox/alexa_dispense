@@ -3,10 +3,10 @@
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
+
 import { MainController } from './main/main.controller';
-import { DocsController } from './docs/docs.controller';
+import { DashboardController } from './dashboard/dashboard.controller';
 import { TutorialController } from './tutorial/tutorial.controller';
-import { DemoController } from './demo/demo.controller';
 
 
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
@@ -23,8 +23,7 @@ angular.module('universityClient', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
-  .controller('DocsController', MainController)
-  .controller('TutorialController', MainController)
-  .controller('DemoController', MainController)
+  .controller('DashboardController', DashboardController)
+  .controller('TutorialController', TutorialController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
