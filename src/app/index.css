@@ -12,3 +12,9 @@
 .thumbnail img.pull-right {
   width: 50px;
 }
+
+
+#pie {
+  height: 250px;
+  width: 250px;
+}
