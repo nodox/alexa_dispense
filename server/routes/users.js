@@ -1,12 +1,6 @@
 var express = require('express');
-var Keen = require('keen.io');
 
 var router = express.Router();
-
-const client = Keen.configure({
-    projectId: "58b9c6b88db53dfda8a8a678",
-    writeKey: "896B61B10C39BDE233958E0DE66661C4B96205146384CB96374493954A481BA8"
-});
 
 
 /* GET users listing. */

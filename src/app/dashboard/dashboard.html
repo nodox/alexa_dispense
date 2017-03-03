@@ -1,18 +1,117 @@
-<div class="container">
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id="chart-01"></div>
+            <canvas id="bar" class="chart chart-bar"
+            chart-data="dashboard.barData" chart-labels="dashboard.barLabels" chart-series="dashboard.barSeries">
+            </canvas>
 
 
-  <div class="jumbotron text-center">
-    <h1>Dashboard</h1>
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 5 days)
+          </div>
+          <div class="chart-stage">
+            <div id="chart-02"></div>
+
+              <canvas id="pie" class="chart chart-pie"
+                chart-data="dashboard.pieData" chart-labels="dashboard.pieLabels" chart-options="options">
+              </canvas> 
+
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by advertiser
+          </div>
+          <div class="chart-stage">
+            <div id="chart-03"></div>
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by device
+          </div>
+          <div class="chart-stage">
+            <div id="chart-04"></div>
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by country
+          </div>
+          <div class="chart-stage">
+            <div id="chart-05"></div>
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <img data-src="holder.js/100%x150/white">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <img data-src="holder.js/100%x150/white">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <img data-src="holder.js/100%x150/white">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <img data-src="holder.js/100%x150/white">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
   </div>
-
-  <canvas id="pie" class="chart chart-pie"
-    chart-data="dashboard.pieData" chart-labels="dashboard.pieLabels" chart-options="options">
-  </canvas> 
-
-  <canvas id="bar" class="chart chart-bar"
-    chart-data="dashboard.barData" chart-labels="dashboard.barLabels" chart-series="series">
-  </canvas>
-
-
-
-</div>

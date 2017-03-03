@@ -11,6 +11,10 @@ export class DashboardController {
     // Pie Chart
     this.pieLabels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
     this.pieData = [300, 500, 100];
+    this.pieOptions = {
+      tooltipSize: 100
+    };
+    this.pieQuery = {};
 
     // Bar chart
     this.barLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
@@ -22,6 +26,8 @@ export class DashboardController {
 
 
   }
+
+
 
 
 
