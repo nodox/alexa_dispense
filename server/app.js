@@ -4,12 +4,18 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
+const Keen = require('keen.io');
 const pg = require('pg');
 const index = require('./routes/index');
 const users = require('./routes/users');
 
+
+
+
+
+
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +43,7 @@ app.use((req, res, next) => {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use((err, req, res) => {
