@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../server/app');
+var app = require('../server/app').app;
 var debug = require('debug')('university-app:server');
 var http = require('http');
 
@@ -12,14 +12,15 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3005');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
+var server = require('../server/app').server;
 console.log('Listening on port: ', port);
 /**
  * Listen on provided port, on all network interfaces.

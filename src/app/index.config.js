@@ -1,4 +1,4 @@
-export function config ($logProvider, toastrConfig, tbkKeenConfigProvider) {
+export function config ($logProvider, toastrConfig) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);

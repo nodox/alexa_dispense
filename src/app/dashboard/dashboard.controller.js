@@ -1,7 +1,8 @@
 export class DashboardController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($timeout, webDevTec, toastr, socket, $scope) {
     'ngInject';
 
+    this.$scope = $scope;
     this.awesomeThings = [];
     this.classAnimation = '';
     this.creationDate = 1487304318548;
@@ -17,15 +18,47 @@ export class DashboardController {
     this.pieQuery = {};
 
     // Bar chart
-    this.barLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-    this.barSeries = ['Series A', 'Series B'];
-    this.barData = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
-    ];
+    this.barLabels = ['Mon', 'Tue', 'Wed', 'Thur', 'Friday', 'Sat', 'Sun'];
+    this.barSeries = ['Pill Count'];
+    this.barData = [65, 59, 80, 81, 56, 75, 56];
 
+    socket.socket.on('sockit', (data) => {
+      console.log('Begin');
+      this.updateData(data);
+      console.log('end');
 
+    });
+
+    // this.$scope.$on('chart-update', function (evt, chart) {
+    //   console.log('We are reached');
+    //   console.log(chart);
+    // });
+
+    // var ctx = document.getElementById('bar');
+    // console.log(ctx);
+    // ctx.resize();
+    // console.log(this);
+    // this.$apply();
   }
+
+  updateData(newData) {
+    console.log('Broo');
+    console.log(this.barData);
+    
+    this.barData.pop();
+
+    // console.log(this.barData["_chartjs"].resize());
+    console.log(this.barData);
+
+    // this.barData = [120, 12, 99, 65, 59, 56, 55, 40];
+    // console.log('Begin');
+    // console.log(newData);
+    // this.barData[newData['day']] = newData.count;
+    // console.log('end');
+  }
+
+
+
 
 
 

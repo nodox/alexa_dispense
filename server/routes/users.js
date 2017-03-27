@@ -9,14 +9,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/pill', function(req, res, next) {
-  // send single event to Keen IO 
-  client.addEvent("my event collection", {"property name": "property value"}, function(err, data) {
-      if (err) {
-          res.json(err);
-      } else {
-          res.send("Hooray, it worked!");
-      }
-  });
+
+  res.io.emit("sockit", { day: 1, count: 100});
+  res.end();
  
 });
 
