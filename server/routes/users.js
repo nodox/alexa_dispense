@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/pill', function(req, res, next) {
+  console.log('yerrrr');
 
   res.io.emit("sockit", { day: 1, count: 100});
   res.end();

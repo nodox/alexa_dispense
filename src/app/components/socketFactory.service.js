@@ -1,11 +1,13 @@
 export class SocketService {
-  constructor ($log, $http) {
+  constructor ($log, $http, socketFactory) {
     'ngInject';
 
     this.$log = $log;
     this.$http = $http;
 
-    this.socket = io('http://localhost:3005');
+    this.socket = socketFactory({
+      ioSocket: io('http://localhost:3005')
+    });
   }
 
 

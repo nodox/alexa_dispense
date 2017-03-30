@@ -16,7 +16,7 @@ import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive
 
 angular.module('universityClient', 
   ['ngAnimate', 'ngCookies', 'ngTouch', 
-  'ngSanitize', 'ngMessages', 'ngAria', 
+  'ngSanitize', 'ngMessages', 'ngAria', 'btford.socket-io',
   'ngResource', 'ui.router', 'toastr', 'chart.js'
 
   ])
