@@ -10,41 +10,28 @@ export class DashboardController {
     this.hello = 'hello word';
 
     // Pie Chart
-    this.pieLabels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    this.pieData = [300, 500, 100];
+    this.pieLabels = ["Administered", "Taken"];
+    this.pieData = [3, 5];
     this.pieOptions = {
       tooltipSize: 100
     };
-    this.pieQuery = {};
+    socket.socket.on('updateDrugAdherenceChart', (data) => {
+      this.pieData[data.dispensed.idx] += data.dispensed.count;
+      this.pieData[data.taken.idx] += data.taken.count;
+    });
 
     // Bar chart
     this.barLabels = ['Mon', 'Tue', 'Wed', 'Thur', 'Friday', 'Sat', 'Sun'];
     this.barSeries = ['Pill Count'];
-    this.barData = [65, 59, 80, 81, 56, 75, 56];
+    this.barData = [15, 29, 10, 8, 16, 18, 12];
 
-    socket.socket.on('sockit', (data) => {
-        this.barData[data['day']] = data.count + 100;
-        console.log('end');
+    socket.socket.on('updatePillsDispensed', (data) => {
+      this.barData[data['day']] += data.count;
     });
 
+
+
+
   }
-
-  // updateData(newData) {
-  //   console.log('Broo');
-  //   console.log(this.barData);
-
-  //   // this.barData = [120, 12, 99, 65, 59, 56, 55, 40];
-  //   // console.log('Begin');
-  //   // console.log(newData);
-  //   // this.barData[newData['day']] = newData.count;
-  //   // console.log('end');
-  // }
-
-
-
-
-
-
-
 
 }

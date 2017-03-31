@@ -7,12 +7,6 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       controllerAs: 'main'
     })
-    .state('tutorial', {
-      url: '/tutorial',
-      templateUrl: 'app/tutorial/tutorial.html',
-      controller: 'TutorialController',
-      controllerAs: 'tutorial'
-    })
     .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'app/dashboard/dashboard.html',

@@ -6,7 +6,6 @@ import { runBlock } from './index.run';
 
 import { MainController } from './main/main.controller';
 import { DashboardController } from './dashboard/dashboard.controller';
-import { TutorialController } from './tutorial/tutorial.controller';
 
 import { SocketService } from '../app/components/socketFactory.service';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
@@ -30,6 +29,5 @@ angular.module('universityClient',
   .service('socket', SocketService)
   .controller('MainController', MainController)
   .controller('DashboardController', DashboardController)
-  .controller('TutorialController', TutorialController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
