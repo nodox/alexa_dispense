@@ -7,8 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/pill', function(req, res, next) {
+
   res.io.emit("updatePillsDispensed", { day: 1, count: 1});
-  
+
   res.io.emit("updateDrugAdherenceChart", { 
     taken: {
       idx: 0,

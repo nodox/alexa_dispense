@@ -2,6 +2,9 @@
   "name": "university-app",
   "version": "0.0.0-semantically-release",
   "private": true,
+  "engines": {
+    "node": "6.9.x"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "cclimate": "./node_modules/.bin/codeclimate-test-reporter",
