@@ -6,7 +6,7 @@ export class SocketService {
     this.$http = $http;
 
     this.socket = socketFactory({
-      ioSocket: io('http://localhost:3005')
+      ioSocket: io()
     });
   }
 
