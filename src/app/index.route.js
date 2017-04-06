@@ -14,5 +14,5 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'dashboard'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/dashboard');
 }
