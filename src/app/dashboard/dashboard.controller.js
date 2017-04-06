@@ -23,7 +23,7 @@ export class DashboardController {
     // Bar chart
     this.barLabels = ['Mon', 'Tue', 'Wed', 'Thur', 'Friday', 'Sat', 'Sun'];
     this.barSeries = ['Pill Count'];
-    this.barData = [1, 1, 1, 1, 1, 1, 1];
+    this.barData = [11, 9, 9, 18, 15, 12, 10];
 
     socket.socket.on('updatePillsDispensed', (data) => {
       this.barData[data['day']] += data.count;
