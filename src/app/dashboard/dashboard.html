@@ -1,11 +1,38 @@
 
+
+
   <div class="container-fluid">
+
+
+    <div class="row">
+      <div class="col-xs-8">
+
+        <h2>Add new drug regiment</h2>
+        <form ng-submit="dashboard.createNewRegimen()">
+          <div class="form-group">
+            <label  class="control-label">Medication Name:</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="Advil" ng-model="dashboard.regimenSchedule.prescribedDrugName" />
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">How many times per day?</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="2" ng-model="dashboard.regimenSchedule.prescribedFrequency" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">When do you need to take a dose?</label>
+             <input type="text" id="" name="input" ng-model="dashboard.regimenSchedule.prescribedTimeOfDay"/>        
+          </div>
+          <button type="submit" class="btn btn-primary">Save regimen</button>
+        </form>
+
+      </div>
+
+    </div>
     <div class="row">
 
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Pills dispensed
+            Adherence Rating
           </div>
           <div class="chart-stage">
             <div id="chart-01"></div>
@@ -24,7 +51,7 @@
       <div class="col-sm-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Pageviews by browser (past 5 days)
+            Medication taken within X hours of prescribed time.
           </div>
           <div class="chart-stage">
             <div id="chart-02"></div>
