@@ -10,7 +10,6 @@ export class DashboardController {
     this.toastr = toastr;
     this.hello = 'hello word';
 
-
     // Display on the front dashboard somewhere
     this.regimenSchedule = {};
 
@@ -30,10 +29,10 @@ export class DashboardController {
     // Bar chart
     this.barLabels = ['Mon', 'Tue', 'Wed', 'Thur', 'Friday', 'Sat', 'Sun'];
     this.barSeries = ['Pill Count'];
-    this.barData = [11, 9, 15, 9, 0, 0, 0];
+    this.barData = [0, 0, 0, 0, 0, 0, 0];
 
     socket.socket.on('updatePillsDispensed', (data) => {
-      this.barData[data['day']] += data.count;
+      this.barData[data['day']] = data.percent;
     });
 
     socket.socket.on('updateDrugAdherenceChart', (data) => {
@@ -47,6 +46,7 @@ export class DashboardController {
   createNewRegimen() {
 
     // console.log(this.regimenSchedule.prescribedTimeOfDay.getTime()); // milliseconds
+
 
     this.$http.get('/users/regimen', {params: this.regimenSchedule})
       .then((res) => {

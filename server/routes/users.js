@@ -3,6 +3,10 @@ var router = express.Router();
 
 
 var userRegimen = {
+
+  weeklyActuals: [0,0,0,0,0,0,0], 
+  weeklyTotals: [0,0,0,0,0,0,0],
+  weeklyPercent: [0,0,0,0,0,0,0],
   hours: {
     within1: 0,
     within2: 0,
@@ -14,41 +18,42 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+
+// day
+// takenValue 0 | 1
+
 router.get('/pill', function(req, res, next) {
 
-  res.io.emit("updatePillsDispensed", { day: 3, count: 1});
+  userRegimen.weeklyActuals[req.query.day] += parseInt(req.query.taken);
+  userRegimen.weeklyTotals[req.query.day] += 1;
 
-  // res.io.emit("updateDrugAdherenceChart", { 
-  //   taken: {
-  //     idx: 0,
-  //     count: 1,
-  //   },
-  //   dispensed: {
-  //     idx: 1,
-  //     count: 1
-  //   }
-  // });
+  var percent = (userRegimen.weeklyActuals[req.query.day] / userRegimen.weeklyTotals[req.query.day]) * 100;
+  // console.log(userRegimen.weeklyActuals[req.query.day]);
+  // console.log(userRegimen.weeklyTotals[req.query.day]);
+  // console.log(percent);
+  res.io.emit("updatePillsDispensed", { 
+    day: req.query.day, 
+    percent: percent
+  });
 
-  console.log(req.query);
 
-  var diff = Math.abs(parseInt(req.query.takenAt) - parseInt(userRegimen.prescribedTimeOfDay));
 
-  if (diff <= 1) {
-
-      userRegimen.hours.within1 += 1    
+  if (req.query.diff) {
+    // var diff = Math.abs(parseInt(req.query.takenAt) - parseInt(userRegimen.prescribedTimeOfDay));
+    if (req.query.diff <= 1) {
+        userRegimen.hours.within1 += 1;  
+    }
+    if (req.query.diff <= 2) {
+        userRegimen.hours.within2 += 1;
+    } 
+    if (req.query.diff >= 3) {
+      userRegimen.hours.within3 += 1;  
+    }
   }
 
-  if (diff <= 2) {
-      userRegimen.hours.within2 += 1    
+  res.io.emit("updateDrugAdherenceChart", userRegimen);    
 
-  } 
 
-  if (diff >= 3) {
-    userRegimen.hours.within3 += 1    
- 
-  }
-
-  res.io.emit("updateDrugAdherenceChart", userRegimen);
 
   res.end();
 });
